@@ -1,34 +1,24 @@
 const express = require("express");
 const router = express.Router();
+// import postControllers
+const postControllers = require("./../controllers/postControllers")
 
-// richiesta dati
-router.get("/", (req, res) => {
-    res.send("rischiesta dati a postArray")
-})
+// index
+router.get("/", postControllers.index)
 
-// rischiesta dati con id specifico
-router.get("/:id", (req, res) => {
-    res.send("rischiesta dati a postArray di un id specifico " + req.params.id)
-})
+// show
+router.get("/:id", postControllers.show)
 
-// creazione nuovo post
-router.post("/", (req, res) => {
-    res.send("creazione nuvo post")
-})
+// store
+router.post("/", postControllers.store)
 
-// modifica integrale 
-router.put("/:id", (req, res) => {
-    res.send("modifica integrale post " + req.params.id)
-})
+// modify
+router.put("/:id", postControllers.modify)
 
-// modifica parziale
-router.patch("/:id", (req, res) => {
-    res.send("modifica parziale post " + req.params.id)
-})
+// upgrade
+router.patch("/:id", postControllers.upgrade)
 
-// eliminazione
-router.delete("/:id", (req, res) => {
-    res.send("cancellazione post " + req.params.id)
-})
+// destroy
+router.delete("/:id", postControllers.destroy)
 
 module.exports = router;
