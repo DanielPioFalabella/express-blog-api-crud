@@ -12,9 +12,12 @@ function store (req,res) {
 
 // show
 function show (req,res) {
+    // mi trasformo l'id in numero
     const id = parseInt(req.params.id)
+    // mi trovo l'id che mi interessa nel postArray e faccio in modo che coincida
     const post = postArray.find(post => post.id === id)
 
+    // se l'id nn è presente faccio tornare errore in pagina
     if(!post) {
         res.status(404)
 
