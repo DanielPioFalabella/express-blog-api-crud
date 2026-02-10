@@ -12,11 +12,11 @@ router.get("/:id", postControllers.show)
 // store
 router.post("/", postControllers.store)
 
-// modify
-router.put("/:id", postControllers.modify)
+// update
+router.put("/:id", postControllers.update)
 
-// upgrade
-router.patch("/:id", postControllers.upgrade)
+// modify
+router.patch("/:id", postControllers.modify)
 
 // destroy
 router.delete("/:id", postControllers.destroy)

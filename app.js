@@ -5,6 +5,9 @@ const port = 3000;
 // importo la rotta riferita a posts
 const routerPosts = require("./routers/posts")
 
+// body parser
+app.use(express.json());
+
 app.use("/posts", routerPosts)
 
 app.use(express.static("public"));
