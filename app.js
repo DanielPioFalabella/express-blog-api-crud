@@ -14,9 +14,6 @@ app.use(express.json());
 
 app.use("/posts", routerPosts)
 
-// middleware errori
-app.use(error)
-
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -25,6 +22,9 @@ app.get("/", (req, res) => {
 
 // middleware pagina inesistente
 app.use(notFound)
+
+// middleware errori
+app.use(error)
 
 app.listen(port, () => {
     console.log("il server è OK!")
