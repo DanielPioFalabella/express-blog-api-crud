@@ -49,7 +49,22 @@ function store(req, res) {
 
 // modify
 function modify(req, res) {
-    res.send("modifica integrale post " + req.params.id)
+    const id = parseInt(req.params.id)
+    const post = postArray.find(post => post.id === id)
+
+    // gli dico cosa deve darmi se nn trova la pagina
+    if (!post) {
+        res.status(404)
+
+        return res.json({
+            error: "Not found",
+            message: "nessun contenuto"
+        })
+    }
+
+    req.body.title ? post.title = req.body.title : post.title = post.title;
+
+    res.json(post)
 }
 
 // update
