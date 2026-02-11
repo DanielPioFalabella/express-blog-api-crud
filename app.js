@@ -4,6 +4,8 @@ const port = 3000;
 
 // importo la rotta riferita a posts
 const routerPosts = require("./routers/posts")
+// importo il middleware per le pagine inesistenti
+const notFound = require("./middlewares/notFound")
 
 // body parser
 app.use(express.json());
@@ -15,6 +17,8 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     res.send()
 })
+
+app.use(notFound)
 
 app.listen(port, () => {
     console.log("il server è OK!")
